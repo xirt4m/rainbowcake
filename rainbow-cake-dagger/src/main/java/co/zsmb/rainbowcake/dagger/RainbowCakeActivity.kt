@@ -13,7 +13,7 @@ inline fun <A : RainbowCakeActivity<VS, VM>, VS, reified VM : RainbowCakeViewMod
             ?.injector
             ?.viewModelFactory()
             ?: RainbowCakeComponentHolder.injector?.viewModelFactory()
-            ?: throw IllegalStateException("RainbowCakeActivity should not be used without an Application that inherits from RainbowCakeApplication")
+            ?: throw IllegalStateException("RainbowCakeActivity should not be used without an Application that inherits from RainbowCakeApplication or without initialized RainbowCakeComponentHolder")
 
     return ViewModelProvider(this, viewModelFactory).get(VM::class.java)
 }
