@@ -8,7 +8,6 @@ artifacts {
 }
 
 apply plugin: 'maven-publish'
-apply plugin: 'signing'
 
 group = PUBLISH_GROUP_ID
 version = PUBLISH_VERSION
@@ -96,8 +95,4 @@ afterEvaluate {
             }
         }
     }
-}
-
-signing {
-    sign publishing.publications
 }
