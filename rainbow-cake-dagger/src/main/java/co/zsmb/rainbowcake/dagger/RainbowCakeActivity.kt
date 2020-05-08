@@ -12,6 +12,7 @@ inline fun <A : RainbowCakeActivity<VS, VM>, VS, reified VM : RainbowCakeViewMod
     val viewModelFactory = (this.getApplicationContext() as? RainbowCakeApplication)
             ?.injector
             ?.viewModelFactory()
+            ?: RainbowCakeComponentHolder.injector?.viewModelFactory()
             ?: throw IllegalStateException("RainbowCakeActivity should not be used without an Application that inherits from RainbowCakeApplication")
 
     return ViewModelProvider(this, viewModelFactory).get(VM::class.java)
